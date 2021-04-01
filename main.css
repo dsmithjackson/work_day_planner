@@ -1,0 +1,29 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+ul, h1 {
+    margin: 0;
+    padding: 0;
+}
+#container {
+    background-color: red;
+    height: 100%;
+}
+#current-date-box {
+    background-color: green;
+}
+#day-hours {
+    background-color: yellow;
+}
+
+.hour-box {
+    display: flex;
+}
+.hour-box button, .hour-box .hour {
+    flex: 1;
+}
+.hour-box .description {
+    flex: 2;
+}
