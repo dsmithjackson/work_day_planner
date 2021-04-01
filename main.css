@@ -27,3 +27,11 @@ ul, h1 {
 .hour-box .description {
     flex: 2;
 }
+
+.is-past {
+    background-color: aliceblue;
+}
+.is-current {
+    background-color: #fff;
+    border: 1px solid #000;
+}
