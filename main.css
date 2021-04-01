@@ -2,8 +2,9 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-ul, h1 {
+ul, h1, h2 {
     margin: 0;
     padding: 0;
 }
@@ -13,18 +14,53 @@ ul, h1 {
 }
 #current-date-box {
     background-color: green;
+    height: 25%;
+    text-align: center;
+}
+h1 {
+    padding-top: 5%;
+    font-size: 10em;
+}
+h2 {
+    font-size: 4em;
 }
 #day-hours {
+    box-sizing: border-box;
+    height: calc(75% - 100px);
+    margin: 50px;
     background-color: yellow;
 }
-
+#hour-container {
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+}
 .hour-box {
+    border: 1px solid #000;
+    border-top: 0;
+    box-sizing: border-box;
+    flex: 1;
     display: flex;
 }
 .hour-box button, .hour-box .hour {
     flex: 1;
+    font-size: 2em;
+}
+.hour-box .hour {
+    text-align: center;
+    border-right: 1px solid #000;
+    display: grid;
+}
+span {
+    margin: auto;
+}
+button {
+    border: 0;
+    border-left: 1px solid #000;
 }
 .hour-box .description {
+    font-size: 1.5em;;
+    padding: 5px;
     flex: 2;
 }
 
@@ -33,5 +69,4 @@ ul, h1 {
 }
 .is-current {
     background-color: #fff;
-    border: 1px solid #000;
 }

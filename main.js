@@ -39,7 +39,7 @@ for (let hourIndex = startHour; hourIndex < startHour + workingHours; hourIndex+
         isCurrent = 'is-current';
     }
 
-    hourBoxes.push(`<li id='hour-${hourIndex}' class='hour-box ${past} ${isCurrent}'><div class='hour'>${format(current, "h a")}</div><div id='hour-${hourIndex}-desc' class='description'>---</div><button onclick='editHour(${hourIndex})'>Edit</button></li>`);
+    hourBoxes.push(`<li id='hour-${hourIndex}' class='hour-box ${past} ${isCurrent}'><div class='hour'><span>${format(current, "h a")}</span></div><div id='hour-${hourIndex}-desc' class='description'>---</div><button onclick='editHour(${hourIndex})'>Edit</button></li>`);
 }
 
 
