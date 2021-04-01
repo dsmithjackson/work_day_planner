@@ -1,4 +1,4 @@
-import { format, startOfDay, addHours, isPast, getHours } from 'https://esm.run/date-fns';
+import { format, startOfDay, addHours, isPast, getHours, formatISO } from 'https://esm.run/date-fns';
 
 
 const currentDate = new Date();
@@ -9,13 +9,19 @@ const workingHours = 12;
 const currentDateString = `${format(currentDate, 'cccc, MMMM do yyyy')}`;
 document.getElementById('current-date').innerText = currentDateString;
 
-
-export function editHour(hour){
-    const current = addHours(startHour, hour);
-    const description = prompt(`What would you like to add at ${format(current, 'h a - cccc, MMMM do yyyy')}`)
-    console.log(description);
+function updateHourDescription(hour, description) {
+    document.getElementById(`hour-${hour}-desc`).innerText = description;
 }
 
+
+export function editHour(hour){
+    const current = addHours(dateStart, hour);
+    const description = prompt(`What would you like to add at ${format(current, 'h a - cccc, MMMM do yyyy')}`)
+    if (description) {
+        updateHourDescription(hour, description)
+        window.localStorage.setItem(`${formatISO(current)}`, description);
+    }
+}
 
 
 const hourBoxes = [];
@@ -38,3 +44,14 @@ for (let hourIndex = startHour; hourIndex < startHour + workingHours; hourIndex+
 
 
 document.getElementById('hour-container').innerHTML = hourBoxes.join('');
+
+
+
+Object.keys(localStorage).forEach((key) => {
+    const storedDate = new Date(key);
+
+    if (dateStart.getTime() === startOfDay(storedDate).getTime()) {
+        const hour = getHours(storedDate);
+        updateHourDescription(hour, window.localStorage.getItem(key))
+    }
+});
